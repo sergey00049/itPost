@@ -1,0 +1,14 @@
+{% extends 'Task/index.html' %}
+
+{% block title %}
+    Выход
+{% endblock title %}
+
+{% block auth %}
+    <h2 class='text-center mt-5 text-muted'>Вы успешно вышли из аккаунта</h2>
+    <hr class="text-muted w-25">
+        <div class="text-center">
+            <span> <a href="{% url 'login' %}">Войти</a> снова?</span>
+        </div>
+{% endblock auth %}
+    

@@ -1,0 +1,16 @@
+{% extends 'Task/index.html' %}
+
+{% block title %}
+    Заметка - {{ task.title }}
+{% endblock title %}
+
+{% block content %}
+    <div class="container mt-5">
+        <a href="{% url 'home' %}" class="btn btn-outline-success mt-3 mb-2 mr-5">Вернуться на главную страницу</a>
+        <a href="{% url 'update' task.id %}" class="btn btn-outline-info mt-3 mb-2 mr-2">Изменить заметку</a>
+        <a href="{% url 'delete' task.id %}" class="btn btn-outline-danger mt-3 mb-2">Удалить заметку</a>
+        <h2>{{ task.title }}</h2>
+        <p>{{ task.text }}</p>
+    </div>
+{% endblock content  %}
+    

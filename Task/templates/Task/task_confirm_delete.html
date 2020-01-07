@@ -1,0 +1,17 @@
+{% extends 'Task/index.html' %}
+
+{% block title %}
+    Удаление заметки
+{% endblock title %}
+
+{% block content %}
+    <div style="margin-top: 100px;" class="text-center">
+        <form method="POST">
+            {% csrf_token %}
+            <h4>Вы действительно хотите удалить эту заметку?</h4>
+            <button type="submit" class="btn btn-outline-danger mt-3 mr-3">Да, удалить заметку</button>
+            <a href="{% url 'detail' task.id %}" class="btn btn-outline-success mt-3">Нет, вернуться назад</a>
+        </form>
+    </div>
+{% endblock content  %}
+    

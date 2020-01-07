@@ -1,0 +1,26 @@
+{% extends 'Task/index.html' %}
+
+{% block content %}  
+    <div style="margin-top: 60px" class="container">
+        {% if tasks %}
+            <div class="row">
+                {% for task in tasks %}
+                    <div class="col-12 col-sm-6 col-md-4 mb-4">
+                        <h6 class="w-100 bg-success text-center text-white p-1 rounded-top m-0">
+                            {{ task.title|safe }}
+                        </h6>
+                        <div class="border border-success rounded-bottom p-1 pb-5 pt-2 pl-2 text-justify" style="overflow-x: hidden; position: relative;">
+                            <p>{{ task.text|striptags|truncatechars:150 }}</p>
+                            <a href="{% url 'detail' task.id %}" class="btn btn-success" style="position: absolute; bottom: 5px; right: 10px;">Открыть</a>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="container text-center">
+                <h4>У вас еще нет ни одного списка задач. Можете <a href="{% url 'add' %}">создать</a> его прямо сейчас</h4>
+            </div>
+        {% endif %}
+        <a href="{% url 'add' %}" style="font-size: 35px; line-height: 40px; height: 50px; width: 50px;position: fixed; bottom: 40px; right: 50px;" class="btn btn-warning float-right rounded-circle p-0 text-white">+</a>
+    </div>
+{% endblock content %}
